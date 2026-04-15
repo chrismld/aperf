@@ -15,8 +15,8 @@ APERF_IMAGE="public.ecr.aws/aperf/aperf:latest"
 REPORT_NAME="aperf_record"
 OPEN_BROWSER=true
 SHOW_HELP=false
-CPU_REQUEST="1.0"
-MEMORY_REQUEST="1Gi"
+CPU_REQUEST="0"
+MEMORY_REQUEST="0"
 CPU_LIMIT="4.0"
 MEMORY_LIMIT="4Gi"
 
@@ -147,8 +147,7 @@ metadata:
   labels:
     app: aperf
 spec:
-  nodeSelector:
-    kubernetes.io/hostname: "${NODE_NAME}"
+  nodeName: "${NODE_NAME}"
 ${TOLERATIONS}
   containers:
   - name: aperf-runner
